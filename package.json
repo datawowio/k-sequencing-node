@@ -1,0 +1,26 @@
+{
+  "name": "k-sequencing-node",
+  "version": "0.0.1rc",
+  "description": "k-sequencing for node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/datawowio/k-sequencing-node.git"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "datawow.io",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/datawowio/k-sequencing-node/issues"
+  },
+  "homepage": "https://github.com/datawowio/k-sequencing-node#readme",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "lodash": "^4.17.4"
+  }
+}
