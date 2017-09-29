@@ -7,7 +7,10 @@ var loadResource = function(name) {
 
 var kseq = function() {
   return {
-    choice: loadResource('choices')
+    choice: loadResource('choices'),
+    closedQuestion: loadResource('closedQuestions'),
+    message: loadResource('messages'),
+    photoTag: loadResource('photoTags')
   };
 };
 
