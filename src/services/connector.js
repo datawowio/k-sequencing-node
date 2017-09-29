@@ -39,7 +39,7 @@ var create_header = function(token) {
 
 var create_request = function(path, token, method){
   return {
-    host: 'kseq.datawow.io',
+    host: 'k-sequencing.datawow.io',
     path: '/api/' + path,
     headers: create_header(token),
     method: method,
