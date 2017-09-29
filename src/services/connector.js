@@ -4,66 +4,59 @@ var https = require('https');
 var Promise = require('bluebird');
 var pkjson = require('../../package.json');
 
-function create_response(req) {
+var _request_data = '';
+var create_response = function(req) {
   return new Promise(function(resolve, reject) {
     req.on('response', function(res) {
       var body = '';
       res.setEncoding('utf8');
-      res.on('data', function(chunk) { body += chunk; });
+      res.on('data', function(chunk) { body += chunk;});
       res.on('end', function() {
-      try {
-        body = JSON.parse(body);
-        console.log(body);
-            // if (resp.object === 'error') {
-            //   reject(resp);
-            // } else {
-        resolve(body);
-            // }
-      } catch (err) {
-        reject(err);
-      }
+        try {
+          body = JSON.parse(body);
+          if (res.statusCode >= 400) {
+            reject(body);
+          } else {
+            resolve(body);
+          }
+        } catch (err) {
+          reject(err);
+        }
       });
     });
   });
-}
+};
 
-function create_header(token) {  
+var create_header = function(token) {  
   return { 
     'Authorization': token,
     'Accept': 'application/json',
-    'Content-Type': 'application/x-www-form-urlencoded',
-    'User-Agent': 'KSequencing/'+pkjson.version+'/Node'
+    'Content-Type': 'application/json',
+    'User-Agent': 'KSequencing/'+pkjson.version+'/Node',
+    'Content-Length': Buffer.byteLength(_request_data, 'utf8')
   };
-}
+};
 
-function create_request(path, token, method, data){
+var create_request = function(path, token, method){
   return {
-    host: 'https://kseq.datawow.io',
+    host: 'kseq.datawow.io',
     path: '/api/' + path,
     headers: create_header(token),
     method: method,
-    body: data
+    body: _request_data
   };
-}
+};
 
-function get(path, token, data,  callback) {
-  var options = create_request(path, token, 'get', data);
+var sendRequest = function(method, path, token, data, callback){ 
+  _request_data = JSON.stringify(data) || '';
+  var options = create_request(path, token, method);
   var request = https.request(options);
   var resolve = create_response(request).nodeify(callback);
-  request.write(options['body'], 'utf8');
+  request.write(_request_data, 'utf8');
   request.end();
   return resolve;
-}
+};
 
-function post(path, token, data,  callback) {
-  var options = create_request(path, token, 'post', data);
-  var request = https.request(options);
-  var resolve = create_response(request).nodeify(callback);
-  request.write(options['body'], 'utf8');
-  request.end();
-  return resolve;
-}
-module.exports = { 
-  get: get(),
-  post: post()
+module.exports = {
+  sendRequest: sendRequest
 };

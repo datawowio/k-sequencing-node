@@ -1,23 +1,23 @@
 'use strict';
 var api = require('../services/connector');
 var querystring = require('querystring');
-var choice = {};
-var _url = 'images/choices';
-var _url_id = 'images/choice';
+var closedQuestion = {};
+var _url = 'images/closed_questions';
+var _url_id = 'images/closed_question';
 
-choice.list = function(option, callback) {
+closedQuestion.list = function(option, callback) {
   option.path = _url;
   return api.sendRequest('GET', option.path, option.token, option.data || {}, callback);
 };
 
-choice.create = function(option, callback) {
+closedQuestion.create = function(option, callback) {
   option.path = _url;
   return api.sendRequest('POST', option.path, option.token, option.data || {}, callback);
 };
 
-choice.find = function(option, callback){
+closedQuestion.find = function(option, callback){
   option.path = _url_id + '?' +querystring.stringify(option.data);
   return api.sendRequest('GET', option.path, option.token, null, callback);
 };
 
-module.exports = choice;
+module.exports = closedQuestion;
