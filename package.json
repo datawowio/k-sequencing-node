@@ -1,5 +1,5 @@
 {
-  "name": "k-sequencing-node",
+  "name": "k-sequencing",
   "version": "0.0.1rc",
   "description": "k-sequencing for node",
   "main": "index.js",
