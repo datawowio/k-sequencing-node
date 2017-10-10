@@ -27,7 +27,7 @@ var data = {
   instruction: 'face',
   categories: 'face ear eye',
   data: 'www.your-image.url',
-  postback_url: 'www.your-callbak.url', multiple: false
+  postback_url: 'www.your-callback.url', multiple: false
 };
 
 var projectToken = "your project token"
