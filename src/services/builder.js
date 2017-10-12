@@ -10,7 +10,8 @@ var kseq = function() {
     choice: loadResource('choices'),
     closedQuestion: loadResource('closedQuestions'),
     message: loadResource('messages'),
-    photoTag: loadResource('photoTags')
+    photoTag: loadResource('photoTags'),
+    prediction: loadResource('predictions')
   };
 };
 
