@@ -1,6 +1,6 @@
 {
   "name": "k-sequencing",
-  "version": "0.0.3-1",
+  "version": "0.0.3",
   "description": "k-sequencing for node",
   "main": "index.js",
   "scripts": {
