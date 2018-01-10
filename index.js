@@ -5,6 +5,7 @@ module.exports = {
     message: require('./src/operations/messages'),
     photoTag: require('./src/operations/photoTags'),
     prediction: require('./src/operations/predictions'),
+    image: require('./src/operations/images'),
     /* eslint-enable global-require */
 };
 
