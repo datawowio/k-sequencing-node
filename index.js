@@ -1,10 +1,10 @@
 module.exports = {
     /* eslint-disable global-require */
-    choice: require('./src/resources/choices'),
-    closedQuestion: require('./src/resources/closedQuestions'),
-    message: require('./src/resources/messages'),
-    photoTag: require('./src/resources/photoTags'),
-    prediction: require('./src/resources/predictions'),
+    choice: require('./src/operations/choices'),
+    closedQuestion: require('./src/operations/closedQuestions'),
+    message: require('./src/operations/messages'),
+    photoTag: require('./src/operations/photoTags'),
+    prediction: require('./src/operations/predictions'),
     /* eslint-enable global-require */
 };
 

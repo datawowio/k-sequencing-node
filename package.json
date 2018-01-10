@@ -20,7 +20,9 @@
     },
     "homepage": "https://github.com/datawowio/k-sequencing-node#readme",
     "dependencies": {
+        "axios": "^0.17.1",
         "bluebird": "^3.5.0",
+        "http-constants": "^1.1.4",
         "lodash": "^4.17.4"
     },
     "devDependencies": {
