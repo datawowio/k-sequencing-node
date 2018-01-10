@@ -3,14 +3,13 @@ const HTTP = require('http-constants');
 const constants = require('../constants.js');
 
 module.exports = {
-    list: options =>
-         axios({
-             method: HTTP.methods.GET,
-             baseURL: constants.URL,
-             url: constants.ENDPOINT.CLOSED_QUESTIONS,
-             headers: { Authorization: options.token },
-             params: options.data,
-         }),
+    list: options => axios({
+        method: HTTP.methods.GET,
+        baseURL: constants.URL,
+        url: constants.ENDPOINT.CLOSED_QUESTIONS,
+        headers: { Authorization: options.token },
+        params: options.data,
+    }),
 
     create: options => axios({
         method: HTTP.methods.POST,
