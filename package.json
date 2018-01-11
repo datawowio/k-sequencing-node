@@ -1,29 +1,48 @@
 {
-  "name": "k-sequencing",
-  "version": "0.0.4-0",
-  "description": "k-sequencing for node",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/datawowio/k-sequencing-node.git"
-  },
-  "keywords": [
-    "k-sequencing"
-  ],
-  "author": "datawow.io",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/datawowio/k-sequencing-node/issues"
-  },
-  "homepage": "https://github.com/datawowio/k-sequencing-node#readme",
-  "dependencies": {
-    "bluebird": "^3.5.0",
-    "lodash": "^4.17.4"
-  },
-  "devDependencies": {
-    "jshint": "^2.9.5"
-  }
+    "name": "k-sequencing",
+    "version": "0.0.4-0",
+    "description": "k-sequencing for node",
+    "main": "index.js",
+    "scripts": {
+        "test": "npm run lint && npm run test:unit:coverage",
+        "lint": "eslint --ext .js .",
+        "test:unit": "NODE_ENV=test mocha --recursive ./tests/unit",
+        "test:unit:coverage": "NODE_ENV=test istanbul cover _mocha -- --recursive ./tests"
+    },
+    "pre-commit": [
+        "lint"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/datawowio/k-sequencing-node.git"
+    },
+    "keywords": [
+        "k-sequencing"
+    ],
+    "author": "datawow.io",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/datawowio/k-sequencing-node/issues"
+    },
+    "homepage": "https://github.com/datawowio/k-sequencing-node#readme",
+    "dependencies": {
+        "axios": "^0.17.1",
+        "bluebird": "^3.5.0",
+        "http-constants": "^1.1.4",
+        "http-status": "^1.0.1",
+        "lodash": "^4.17.4"
+    },
+    "devDependencies": {
+        "chai": "4.1.0",
+        "chai-as-promised": "7.1.1",
+        "eslint": "3.19.0",
+        "eslint-config-airbnb": "15.0.2",
+        "eslint-plugin-import": "2.6.1",
+        "eslint-plugin-jsx-a11y": "5.1.1",
+        "eslint-plugin-react": "7.1.0",
+        "istanbul": "^0.4.5",
+        "mocha": "3.4.2",
+        "sinon": "2.3.8",
+        "sinon-chai": "2.12.0"
+    }
 }

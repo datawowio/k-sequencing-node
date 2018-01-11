@@ -1,0 +1,10 @@
+instrumentation:
+  include-all-sources: true
+  excludes: [
+    "./src/constants.js", 
+    "index.js", 
+    ]
+  reporting:
+    reports:
+      - text
+      - html
