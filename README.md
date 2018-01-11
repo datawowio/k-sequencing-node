@@ -31,7 +31,7 @@ var data = {
 
 var projectToken = "your project token"
 
-kseq.choice.create({token: projectToken, data: data}).then(result => {
+kseq.choice.create({ token: projectToken, data }).then(result => {
     console.log(result.data);
 }).catch(err => {
     console.error(err);
@@ -43,11 +43,11 @@ kseq.choice.create({token: projectToken, data: data}).then(result => {
 
 ##### Get list
 ```js 
-choice.list({ Authorization: <authorization>, data: <params> })
+choice.list({ token: <authorization>, data: <params> })
 ```
-##### authorization
-> - *Authorization* **(string, header, required)**: Token of your project
-##### params
+##### Authorization
+> - *authorization* **(string, header, required)**: Token of your project
+##### params object
 > - *id* **(string, optional)**
 > - *page* **(string, optional)**: Default 0
 > - *per_page* **(string, optional)**: Default 20
@@ -56,11 +56,11 @@ choice.list({ Authorization: <authorization>, data: <params> })
  
 ##### Create
 ```js
-choice.create({ Authorization: <authorization>, data: <params> })
+choice.create({ token: <authorization>, data: <params> })
 ```
-##### authorization
-> - *Authorization* **(string, header, required)**: Token of your project
-##### params
+##### Authorization
+> - *authorization* **(string, header, required)**: Token of your project
+##### params object
 > - *instruction* **(string, required)**
 > - *categories* **(string group, required)**: separate group by space ``` name1 name2 name3 ```
 > - *data* **(string URL, required)**
@@ -76,11 +76,11 @@ choice.create({ Authorization: <authorization>, data: <params> })
 
 ##### Get list
 ```js 
-closedQuestion.list({ Authorization: <authorization>, data: <params> })
+closedQuestion.list({ token: <authorization>, data: <params> })
 ```
-##### authorization
-> - *Authorization* **(string, header, required)**: Token of your project
-##### params
+##### Authorization
+> - *authorization* **(string, header, required)**: Token of your project
+##### params object
 > - *id* **(string, optional)**
 > - *page* **(string, optional)**: Default 0
 > - *per_page* **(string, optional)**: Default 20
@@ -88,11 +88,11 @@ closedQuestion.list({ Authorization: <authorization>, data: <params> })
  
 ##### Create
 ```js
-closedQuestion.create({ Authorization: <authorization>, data: <params> })
+closedQuestion.create({ token: <authorization>, data: <params> })
 ```
-##### authorization
-> - *Authorization* **(string, header, required)**: Token of your project
-##### params
+##### Authorization
+> - *authorization* **(string, header, required)**: Token of your project
+##### params object
 > - *data* **(string URL, required)**
 > - *postback_url* **(string URL, optional)**
 > - *postback_method* **(string, optional)**: Default with your project setting. if you set this parameter that will be override your default setting
@@ -105,11 +105,11 @@ closedQuestion.create({ Authorization: <authorization>, data: <params> })
 
 ##### Get list
 ```js 
-message.list({ Authorization: <authorization>, data: <params> })
+message.list({ token: <authorization>, data: <params> })
 ```
-##### authorization
-> - *Authorization* **(string, header, required)**: Token of your project
-##### params
+##### Authorization
+> - *authorization* **(string, header, required)**: Token of your project
+##### params object
 > - *id* **(string, optional)**
 > - *page* **(string, optional)**: Default 0
 > - *per_page* **(string, optional)**: Default 20
@@ -117,11 +117,11 @@ message.list({ Authorization: <authorization>, data: <params> })
 
 ##### Create
 ```js
-message.create({ Authorization: <authorization>, data: <params> })
+message.create({ token: <authorization>, data: <params> })
 ```
-##### authorization
-> - *Authorization* **(string, header, required)**: Token of your project
-##### params
+##### Authorization
+> - *authorization* **(string, header, required)**: Token of your project
+##### params object
 > - *instruction* **(string, required)**
 > - *data* **(string URL, required)**
 > - *postback_url* **(string URL, optional)**
@@ -135,11 +135,11 @@ message.create({ Authorization: <authorization>, data: <params> })
 
 ##### Get list
 ```js 
-photoTag.list({ Authorization: <authorization>, data: <params> })
+photoTag.list({ token: <authorization>, data: <params> })
 ```
-##### authorization
-> - *Authorization* **(string, header, required)**: Token of your project
-##### params
+##### Authorization
+> - *authorization* **(string, header, required)**: Token of your project
+##### params object
 > - *id* **(string, optional)**
 > - *page* **(string, optional)**: Default 0
 > - *per_page* **(string, optional)**: Default 20
@@ -148,11 +148,11 @@ photoTag.list({ Authorization: <authorization>, data: <params> })
  
 ##### Create
 ```js
-photoTag.create({ Authorization: <authorization>, data: <params> })
+photoTag.create({ token: <authorization>, data: <params> })
 ```
-##### authorization
-> - *Authorization* **(string, header, required)**: Token of your project
-##### params
+##### Authorization
+> - *authorization* **(string, header, required)**: Token of your project
+##### params object
 > - *instruction* **(string, required)**
 > - *data* **(string URL, required)**
 > - *postback_url* **(string URL, optional)**
@@ -165,12 +165,12 @@ photoTag.create({ Authorization: <authorization>, data: <params> })
 
 ##### Get list
   ```js 
-prediction.list({ Authorization: <authorization>, data: <params> })
+prediction.list({ token: <authorization>, data: <params> })
   ```
 
-##### authorization
-  > - *Authorization* **(string, header, required)**: Token of your project
-##### params
+##### Authorization
+  > - *authorization* **(string, header, required)**: Token of your project
+##### params object
   > - *id* **(string, optional)**
   > - *page* **(int, optional)**: Default 0
   > - *per_page* **(int, optional)**: Default 20
@@ -178,11 +178,11 @@ prediction.list({ Authorization: <authorization>, data: <params> })
 
 ##### Create
   ```js
-prediction.create({ Authorization: <authorization>, data: <params> })
+prediction.create({ token: <authorization>, data: <params> })
   ```
-##### authorization
-  > - *Authorization* **(string, header, required)**: Token of your project
-##### params
+##### Authorization
+  > - *authorization* **(string, header, required)**: Token of your project
+##### params object
   > - *data* **(string URL, required)**
   > - *postback_url* **(string URL, optional)**
   > - *postback_method* **(string, optional)**: Default with your project setting. if you set this parameter that will be override your default setting
@@ -191,9 +191,9 @@ prediction.create({ Authorization: <authorization>, data: <params> })
 ----------
 #### Dynamically get image from project token
 ```js
-image.get({ Authorization: <authorization>, data: <params> })
+image.get({ token: <authorization>, data: <params> })
 ```
-##### authorization
-> - *Authorization* **(string, header, required)**: Token of your project
-##### params
+##### Authorization
+> - *authorization* **(string, header, required)**: Token of your project
+##### params object
 > - *id* **(string URL, required)**: Image ID or Client's image ID.
