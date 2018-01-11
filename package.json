@@ -9,6 +9,9 @@
         "test:unit": "NODE_ENV=test mocha --recursive ./tests/unit",
         "test:unit:coverage": "NODE_ENV=test istanbul cover _mocha -- --recursive ./tests"
     },
+    "pre-commit": [
+        "lint"
+    ],
     "repository": {
         "type": "git",
         "url": "git+https://github.com/datawowio/k-sequencing-node.git"
