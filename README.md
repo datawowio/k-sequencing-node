@@ -1,6 +1,8 @@
 # K-Sequencing for NodeJS 
-support or question support@datawow.io
 
+[![CircleCI Build Status](https://circleci.com/gh/datawowio/k-sequencing-node.svg?style=shield)](https://circleci.com/gh/datawowio/k-sequencing-node)
+
+support or question support@datawow.io
 
 # Installation 
 
