@@ -21,5 +21,5 @@ const getImage = `
 `;
 
 module.exports = {
-    getImage,
+  getImage,
 };

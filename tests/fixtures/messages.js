@@ -45,6 +45,6 @@ const listMessage = `
 `;
 
 module.exports = {
-    listMessage,
-    createMessage,
+  listMessage,
+  createMessage,
 };

@@ -43,6 +43,6 @@ const listClosedQuestion = `
 `;
 
 module.exports = {
-    listClosedQuestion,
-    createClosedQuestion,
+  listClosedQuestion,
+  createClosedQuestion,
 };

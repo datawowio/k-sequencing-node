@@ -45,6 +45,6 @@ const listPhotoTag = `
 `;
 
 module.exports = {
-    createPhotoTag,
-    listPhotoTag,
+  createPhotoTag,
+  listPhotoTag,
 };

@@ -53,6 +53,6 @@ const createChoice = `
 `;
 
 module.exports = {
-    getListChoice,
-    createChoice,
+  getListChoice,
+  createChoice,
 };

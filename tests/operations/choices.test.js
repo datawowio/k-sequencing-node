@@ -11,45 +11,45 @@ const assert = chai.assert;
 const choice = require('../../src/operations/choices');
 
 const listOptions = {
-    id: 1,
+  id: 1,
 };
 
 const createOptions = {
-    instruction: 'instruction',
-    categories: 'foo',
-    data: 'https://assets-cdn.github.com/images/modules/open_graph/github-mark.png',
-    custom_id: '1',
+  instruction: 'instruction',
+  categories: 'foo',
+  data: 'https://assets-cdn.github.com/images/modules/open_graph/github-mark.png',
+  custom_id: '1',
 };
 
 const PROJECT_KEY = 'project-key';
 
 describe('operations/choices', function () {
-    let sandbox;
-    let choiceListStub;
-    let choiceCreateStub;
-    beforeEach(function () {
-        sandbox = sinon.sandbox.create();
-        choiceListStub = sandbox.stub(choice, 'list');
-        choiceCreateStub = sandbox.stub(choice, 'create');
-    });
+  let sandbox;
+  let choiceListStub;
+  let choiceCreateStub;
+  beforeEach(function () {
+    sandbox = sinon.sandbox.create();
+    choiceListStub = sandbox.stub(choice, 'list');
+    choiceCreateStub = sandbox.stub(choice, 'create');
+  });
 
-    afterEach(function () {
-        sandbox.restore();
-    });
+  afterEach(function () {
+    sandbox.restore();
+  });
 
-    it('should get list of image choice', async function () {
-        choiceListStub.resolves({ data: getListChoice });
-        const result = await choice.list({ token: PROJECT_KEY, data: listOptions });
-        const parsed = JSON.parse(result.data);
-        assert.isArray(parsed.data.images);
-        assert.equal(parsed.meta.code, HttpStatus.OK);
-    });
+  it('should get list of image choice', async function () {
+    choiceListStub.resolves({ data: getListChoice });
+    const result = await choice.list({ token: PROJECT_KEY, data: listOptions });
+    const parsed = JSON.parse(result.data);
+    assert.isArray(parsed.data.images);
+    assert.equal(parsed.meta.code, HttpStatus.OK);
+  });
 
-    it('should create image choice', async function () {
-        choiceCreateStub.resolves({ data: createChoice });
-        const result = await choice.create({ token: PROJECT_KEY, data: createOptions });
-        const parsed = JSON.parse(result.data);
-        assert.isObject(parsed.data);
-        assert.equal(parsed.meta.code, HttpStatus.OK);
-    });
+  it('should create image choice', async function () {
+    choiceCreateStub.resolves({ data: createChoice });
+    const result = await choice.create({ token: PROJECT_KEY, data: createOptions });
+    const parsed = JSON.parse(result.data);
+    assert.isObject(parsed.data);
+    assert.equal(parsed.meta.code, HttpStatus.OK);
+  });
 });

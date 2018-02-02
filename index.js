@@ -6,10 +6,10 @@ const prediction = require('./src/operations/predictions');
 const image = require('./src/operations/images');
 
 module.exports = {
-    choice,
-    closedQuestion,
-    message,
-    photoTag,
-    prediction,
-    image,
+  choice,
+  closedQuestion,
+  message,
+  photoTag,
+  prediction,
+  image,
 };

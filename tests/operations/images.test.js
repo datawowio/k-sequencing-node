@@ -11,28 +11,28 @@ const assert = chai.assert;
 const image = require('../../src/operations/images');
 
 const getOptions = {
-    id: 1,
+  id: 1,
 };
 
 const PROJECT_KEY = 'project-key';
 
 describe('operations/images', function () {
-    let sandbox;
-    let getImageStub;
-    beforeEach(function () {
-        sandbox = sinon.sandbox.create();
-        getImageStub = sandbox.stub(image, 'get');
-    });
+  let sandbox;
+  let getImageStub;
+  beforeEach(function () {
+    sandbox = sinon.sandbox.create();
+    getImageStub = sandbox.stub(image, 'get');
+  });
 
-    afterEach(function () {
-        sandbox.restore();
-    });
+  afterEach(function () {
+    sandbox.restore();
+  });
 
-    it('should get any image', async function () {
-        getImageStub.resolves({ data: getImage });
-        const result = await image.get({ token: PROJECT_KEY, data: getOptions });
-        const parsed = JSON.parse(result.data);
-        assert.isObject(parsed.data);
-        assert.equal(parsed.meta.code, HttpStatus.OK);
-    });
+  it('should get any image', async function () {
+    getImageStub.resolves({ data: getImage });
+    const result = await image.get({ token: PROJECT_KEY, data: getOptions });
+    const parsed = JSON.parse(result.data);
+    assert.isObject(parsed.data);
+    assert.equal(parsed.meta.code, HttpStatus.OK);
+  });
 });

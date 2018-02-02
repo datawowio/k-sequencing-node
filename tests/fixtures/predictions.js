@@ -43,6 +43,6 @@ const listPrediction = `
 `;
 
 module.exports = {
-    listPrediction,
-    createPrediction,
+  listPrediction,
+  createPrediction,
 };
