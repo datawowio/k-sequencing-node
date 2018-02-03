@@ -1,7 +1,5 @@
 const sinon = require('sinon');
 const chai = require('chai');
-const axios = require('axios');
-const _ = require('lodash');
 const HttpStatus = require('http-status');
 const utils = require('../src/utils');
 
@@ -18,5 +16,11 @@ describe('utils', function () {
     const expectedResult = 'data=http://localhost:3000&postback_url=Postback url&instruction=face';
     const result = utils.toQueryString(data);
     assert.equal(result, expectedResult);
+  });
+
+  it('should return empty if object is empty', function () {
+    const data = '';
+    const result = utils.toQueryString(data);
+    assert.isEmpty(result);
   });
 });

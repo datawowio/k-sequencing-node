@@ -9,6 +9,7 @@ sinon.assert.expose(chai.assert, { prefix: '' });
 const assert = chai.assert;
 
 const image = require('../../src/operations/images');
+const httpClient = require('../../src/httpClient');
 
 const getOptions = {
   id: 1,
@@ -18,10 +19,10 @@ const PROJECT_KEY = 'project-key';
 
 describe('operations/images', function () {
   let sandbox;
-  let getImageStub;
+  let callGetStub;
   beforeEach(function () {
     sandbox = sinon.sandbox.create();
-    getImageStub = sandbox.stub(image, 'get');
+    callGetStub = sandbox.stub(httpClient, 'callGet');
   });
 
   afterEach(function () {
@@ -29,7 +30,7 @@ describe('operations/images', function () {
   });
 
   it('should get any image', async function () {
-    getImageStub.resolves({ data: getImage });
+    callGetStub.resolves({ data: getImage });
     const result = await image.get({ token: PROJECT_KEY, data: getOptions });
     const parsed = JSON.parse(result.data);
     assert.isObject(parsed.data);

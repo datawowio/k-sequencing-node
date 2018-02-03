@@ -9,6 +9,7 @@ sinon.assert.expose(chai.assert, { prefix: '' });
 const assert = chai.assert;
 
 const message = require('../../src/operations/messages');
+const httpClient = require('../../src/httpClient');
 
 const listOptions = {
   id: 1,
@@ -24,12 +25,12 @@ const PROJECT_KEY = 'project-key';
 
 describe('operations/message', function () {
   let sandbox;
-  let listMessageStub;
-  let createMessageStub;
+  let callGetStub;
+  let callPostStub;
   beforeEach(function () {
     sandbox = sinon.sandbox.create();
-    listMessageStub = sandbox.stub(message, 'list');
-    createMessageStub = sandbox.stub(message, 'create');
+    callGetStub = sandbox.stub(httpClient, 'callGet');
+    callPostStub = sandbox.stub(httpClient, 'callPost');
   });
 
   afterEach(function () {
@@ -37,7 +38,7 @@ describe('operations/message', function () {
   });
 
   it('should get list of message image', async function () {
-    listMessageStub.resolves({ data: listMessage });
+    callGetStub.resolves({ data: listMessage });
     const result = await message.list({ token: PROJECT_KEY, data: listOptions });
     const parsed = JSON.parse(result.data);
     assert.isArray(parsed.data.images);
@@ -45,7 +46,7 @@ describe('operations/message', function () {
   });
 
   it('should create a message image', async function () {
-    createMessageStub.resolves({ data: createMessage });
+    callPostStub.resolves({ data: createMessage });
     const result = await message.create({ token: PROJECT_KEY, data: createOptions });
     const parsed = JSON.parse(result.data);
     assert.isObject(parsed.data);

@@ -9,6 +9,7 @@ sinon.assert.expose(chai.assert, { prefix: '' });
 const assert = chai.assert;
 
 const choice = require('../../src/operations/choices');
+const httpClient = require('../../src/httpClient');
 
 const listOptions = {
   id: 1,
@@ -25,12 +26,12 @@ const PROJECT_KEY = 'project-key';
 
 describe('operations/choices', function () {
   let sandbox;
-  let choiceListStub;
-  let choiceCreateStub;
+  let callGetStub;
+  let callPostStub;
   beforeEach(function () {
     sandbox = sinon.sandbox.create();
-    choiceListStub = sandbox.stub(choice, 'list');
-    choiceCreateStub = sandbox.stub(choice, 'create');
+    callGetStub = sandbox.stub(httpClient, 'callGet');
+    callPostStub = sandbox.stub(httpClient, 'callPost');
   });
 
   afterEach(function () {
@@ -38,7 +39,7 @@ describe('operations/choices', function () {
   });
 
   it('should get list of image choice', async function () {
-    choiceListStub.resolves({ data: getListChoice });
+    callGetStub.resolves({ data: getListChoice });
     const result = await choice.list({ token: PROJECT_KEY, data: listOptions });
     const parsed = JSON.parse(result.data);
     assert.isArray(parsed.data.images);
@@ -46,7 +47,7 @@ describe('operations/choices', function () {
   });
 
   it('should create image choice', async function () {
-    choiceCreateStub.resolves({ data: createChoice });
+    callPostStub.resolves({ data: createChoice });
     const result = await choice.create({ token: PROJECT_KEY, data: createOptions });
     const parsed = JSON.parse(result.data);
     assert.isObject(parsed.data);

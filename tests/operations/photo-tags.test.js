@@ -9,6 +9,7 @@ sinon.assert.expose(chai.assert, { prefix: '' });
 const assert = chai.assert;
 
 const photoTag = require('../../src/operations/photoTags');
+const httpClient = require('../../src/httpClient');
 
 const listOptions = {
   id: 1,
@@ -24,12 +25,12 @@ const PROJECT_KEY = 'project-key';
 
 describe('operations/photoTag', function () {
   let sandbox;
-  let listPhotoTagStub;
-  let createPhotoTagStub;
+  let callGetStub;
+  let callPostStub;
   beforeEach(function () {
     sandbox = sinon.sandbox.create();
-    listPhotoTagStub = sandbox.stub(photoTag, 'list');
-    createPhotoTagStub = sandbox.stub(photoTag, 'create');
+    callGetStub = sandbox.stub(httpClient, 'callGet');
+    callPostStub = sandbox.stub(httpClient, 'callPost');
   });
 
   afterEach(function () {
@@ -37,7 +38,7 @@ describe('operations/photoTag', function () {
   });
 
   it('should get list of photo tag image', async function () {
-    listPhotoTagStub.resolves({ data: listPhotoTag });
+    callGetStub.resolves({ data: listPhotoTag });
     const result = await photoTag.list({ token: PROJECT_KEY, data: listOptions });
     const parsed = JSON.parse(result.data);
     assert.isArray(parsed.data.images);
@@ -45,7 +46,7 @@ describe('operations/photoTag', function () {
   });
 
   it('should create photo tag image', async function () {
-    createPhotoTagStub.resolves({ data: createPhotoTag });
+    callPostStub.resolves({ data: createPhotoTag });
     const result = await photoTag.create({ token: PROJECT_KEY, data: createOptions });
     const parsed = JSON.parse(result.data);
     assert.isObject(parsed.data);

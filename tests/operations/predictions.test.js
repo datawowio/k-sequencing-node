@@ -9,6 +9,7 @@ sinon.assert.expose(chai.assert, { prefix: '' });
 const assert = chai.assert;
 
 const prediction = require('../../src/operations/predictions');
+const httpClient = require('../../src/httpClient');
 
 const listOptions = {
   id: 1,
@@ -23,12 +24,12 @@ const PROJECT_KEY = 'project-key';
 
 describe('operations/Prediction', function () {
   let sandbox;
-  let listPredictionStub;
-  let createPredictionStub;
+  let callGetStub;
+  let callPostStub;
   beforeEach(function () {
     sandbox = sinon.sandbox.create();
-    listPredictionStub = sandbox.stub(prediction, 'list');
-    createPredictionStub = sandbox.stub(prediction, 'create');
+    callGetStub = sandbox.stub(httpClient, 'callGet');
+    callPostStub = sandbox.stub(httpClient, 'callPost');
   });
 
   afterEach(function () {
@@ -36,7 +37,7 @@ describe('operations/Prediction', function () {
   });
 
   it('should get list of prediction image', async function () {
-    listPredictionStub.resolves({ data: listPrediction });
+    callGetStub.resolves({ data: listPrediction });
     const result = await prediction.list({ token: PROJECT_KEY, data: listOptions });
     const parsed = JSON.parse(result.data);
     assert.isArray(parsed.data.image);
@@ -44,7 +45,7 @@ describe('operations/Prediction', function () {
   });
 
   it('should create prediction image', async function () {
-    createPredictionStub.resolves({ data: createPrediction });
+    callPostStub.resolves({ data: createPrediction });
     const result = await prediction.create({ token: PROJECT_KEY, data: createOptions });
     const parsed = JSON.parse(result.data);
     assert.isObject(parsed.data);
