@@ -1,24 +1,21 @@
-const HTTP = require('http-constants');
 const axios = require('axios');
 const constants = require('./constants');
 
-function callGet(url, options = {}) {
-  return axios({
-    method: HTTP.methods.GET,
-    baseURL: constants.URL,
-    url,
+function callGet(endpoint, options = {}) {
+  return axios.get(constants.URL + endpoint, {
     headers: { Authorization: options.token },
-  });
+  })
+  .then(result => result)
+  .catch(err => err);
 }
 
-function callPost(url, options = {}) {
-  return axios({
-    method: HTTP.methods.POST,
-    baseURL: constants.URL,
-    url,
+function callPost(endpoint, options = {}) {
+  return axios.post(constants.URL + endpoint, {
     headers: { Authorization: options.token },
     data: options.data,
-  });
+  })
+  .then(result => result)
+  .catch(err => err);
 }
 
 module.exports = {
