@@ -1,14 +1,12 @@
-const axios = require('axios');
-const HTTP = require('http-constants');
-const constants = require('../constants.js');
+const constants = require('../constants');
+const HttpClient = require('../httpClient');
 const _ = require('lodash');
 
+function callGet(options) {
+  const endpointUrl = `${constants.ENDPOINT.IMAGE}/${_.get(options.data, 'id')}`;
+  return HttpClient.callGet(endpointUrl, options);
+}
+
 module.exports = {
-  get: options =>
-    axios({
-      method: HTTP.methods.GET,
-      baseURL: constants.URL,
-      url: `${constants.ENDPOINT.IMAGE}/${_.get(options.data, 'id')}`,
-      headers: { Authorization: options.token },
-    }),
+  get: options => callGet(options),
 };

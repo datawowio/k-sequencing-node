@@ -1,21 +1,17 @@
-const axios = require('axios');
-const HTTP = require('http-constants');
+const HttpClient = require('../httpClient');
 const constants = require('../constants.js');
+const utils = require('../utils');
+
+function callGetList(options) {
+  const endpointUrl = constants.ENDPOINT.PHOTO_TAGS + utils.toQueryString(options.data);
+  return HttpClient.callGet(endpointUrl, options);
+}
+
+function callPost(options) {
+  return HttpClient.callPost(constants.ENDPOINT.PHOTO_TAGS, options);
+}
 
 module.exports = {
-  list: options => axios({
-    method: HTTP.methods.GET,
-    baseURL: constants.URL,
-    url: constants.ENDPOINT.PHOTO_TAGS,
-    headers: { Authorization: options.token },
-    params: options.data,
-  }),
-
-  create: options => axios({
-    method: HTTP.methods.POST,
-    baseURL: constants.URL,
-    url: constants.ENDPOINT.PHOTO_TAGS,
-    headers: { Authorization: options.token },
-    data: options.data,
-  }),
+  list: options => callGetList(options),
+  create: options => callPost(options),
 };
