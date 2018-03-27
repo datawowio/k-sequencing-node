@@ -1,6 +1,6 @@
-const HttpClient = require('../httpClient');
-const constants = require('../constants.js');
-const utils = require('../utils');
+const HttpClient = require('../../httpClient');
+const constants = require('../../constants');
+const utils = require('../../utils');
 
 function callGetList(options) {
   const endpointUrl = utils.imageRequestUrl(constants.ENDPOINT.PHOTO_TAGS) + utils.toQueryString(options.data);

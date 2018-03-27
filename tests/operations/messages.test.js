@@ -8,7 +8,7 @@ const { listMessage, createMessage } = require('../fixtures/messages');
 sinon.assert.expose(chai.assert, { prefix: '' });
 const assert = chai.assert;
 
-const message = require('../../src/operations/messages');
+const message = require('../../src/operations/images/messages');
 const httpClient = require('../../src/httpClient');
 
 const listOptions = {

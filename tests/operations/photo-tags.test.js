@@ -8,7 +8,7 @@ const { listPhotoTag, createPhotoTag } = require('../fixtures/photo-tags');
 sinon.assert.expose(chai.assert, { prefix: '' });
 const assert = chai.assert;
 
-const photoTag = require('../../src/operations/photoTags');
+const photoTag = require('../../src/operations/images/photoTags');
 const httpClient = require('../../src/httpClient');
 
 const listOptions = {

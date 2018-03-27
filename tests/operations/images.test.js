@@ -8,7 +8,7 @@ const { getImage } = require('../fixtures/images');
 sinon.assert.expose(chai.assert, { prefix: '' });
 const assert = chai.assert;
 
-const image = require('../../src/operations/images');
+const image = require('../../src/operations/images/images');
 const httpClient = require('../../src/httpClient');
 
 const getOptions = {

@@ -8,7 +8,7 @@ const { listPrediction, createPrediction } = require('../fixtures/predictions');
 sinon.assert.expose(chai.assert, { prefix: '' });
 const assert = chai.assert;
 
-const prediction = require('../../src/operations/predictions');
+const prediction = require('../../src/operations/images/predictions');
 const httpClient = require('../../src/httpClient');
 
 const listOptions = {

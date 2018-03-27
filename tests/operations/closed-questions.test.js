@@ -8,7 +8,7 @@ const { listClosedQuestion, createClosedQuestion } = require('../fixtures/closed
 sinon.assert.expose(chai.assert, { prefix: '' });
 const assert = chai.assert;
 
-const closedQuestion = require('../../src/operations/closedQuestions');
+const closedQuestion = require('../../src/operations/images/closedQuestions');
 const httpClient = require('../../src/httpClient');
 
 const listOptions = {

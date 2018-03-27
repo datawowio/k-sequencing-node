@@ -8,7 +8,7 @@ const { getListChoice, createChoice } = require('../fixtures/choice-image');
 sinon.assert.expose(chai.assert, { prefix: '' });
 const assert = chai.assert;
 
-const choice = require('../../src/operations/choices');
+const choice = require('../../src/operations/images/choices');
 const httpClient = require('../../src/httpClient');
 
 const listOptions = {
