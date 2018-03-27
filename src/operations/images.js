@@ -1,9 +1,10 @@
 const constants = require('../constants');
 const HttpClient = require('../httpClient');
 const _ = require('lodash');
+const utils = require('../utils');
 
 function callGet(options) {
-  const endpointUrl = `${constants.ENDPOINT.IMAGE}/${_.get(options.data, 'id')}`;
+  const endpointUrl = `${utils.imageRequestUrl(constants.ENDPOINT.IMAGE)}/${_.get(options.data, 'id')}`;
   return HttpClient.callGet(endpointUrl, options);
 }
 
