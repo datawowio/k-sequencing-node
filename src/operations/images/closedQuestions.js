@@ -3,12 +3,13 @@ const constants = require('../../constants');
 const utils = require('../../utils');
 
 function callGetList(options) {
-  const endpointUrl = utils.imageRequestUrl(constants.ENDPOINT.CLOSED_QUESTIONS) + utils.toQueryString(options.data);
+  const endpointUrl =
+    utils.imageRequestUrl(constants.ENDPOINT.IMAGES.CLOSED_QUESTIONS) + utils.toQueryString(options.data);
   return HttpClient.callGet(endpointUrl, options);
 }
 
 function callPost(options) {
-  return HttpClient.callPost(utils.imageRequestUrl(constants.ENDPOINT.CLOSED_QUESTIONS), options);
+  return HttpClient.callPost(utils.imageRequestUrl(constants.ENDPOINT.IMAGES.CLOSED_QUESTIONS), options);
 }
 
 module.exports = {
