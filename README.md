@@ -39,7 +39,7 @@ kseq.choice.create({ token: projectToken, data }).then(result => {
     console.error(err);
 });
 ```
-## List API Provider 
+## List of available Image Moderations
 
 #### Image Choices
 
@@ -199,3 +199,87 @@ image.get({ token: <authorization>, data: <params> })
 > - *authorization* **(string, header, required)**: Token of your project
 ##### params object
 > - *id* **(string URL, required)**: Image ID or Client's image ID.
+
+## List of available Text Moderations
+
+### _Profanity Filtering_
+
+#### Create filter set
+```js
+badWord.create({ token: <authorization>, data: <params> })
+```
+##### Authorization
+> - *authorization* **(string, header, required)**: Token of your project
+##### Params payload
+> - *project_type* **(string, required)**: A project type ( for now default is `text_bad_word` )
+> - *filter_set* **(string URL, optional)**: List of word you want to filter out
+> - *use_default* **(boolean, optional)**: Select whether using our predefined filter set or custom by own
+
+#### Get filtering set
+```js
+badWord.get({ token: <authorization>, data: <params> })
+```
+##### Authorization
+> - *authorization* **(string, header, required)**: Token of your project
+##### Params payload
+> - *id* **(string, required)**: Custom filter set ID.
+
+#### Send stream of text to moderate
+```js
+textBadWord.create({ token: <authorization>, data: <params> })
+```
+##### Authorization
+> - *authorization* **(string, header, required)**: Token of your project
+##### Params payload
+> - *data* **(string, required)**: Stream of text to moderate.
+> - *postback_url* **(string URL, optional)**: Where you want us to send result back to
+> - *postback_method* **(string, optional)**: Default with your project setting. If you set this parameter that will be override your default setting
+> - *custom_id* **(string, optional)**: Use to custom ``` Primary key ``` of data row
+
+####  Get Profinity Filtering info object
+```js
+textBadWord.get({ token: <authorization>, data: <params> })
+```
+##### Authorization
+> - *authorization* **(string, header, required)**: Token of your project
+##### Params payload
+> - *id* **(string, optional)** Text Bad Word's Custom ID
+
+----------
+### _Text Human Categorization_
+
+#### Send (create) stream of text to moderate
+```js
+category.create({ token: <authorization>, data: <params> })
+```
+##### Authorization
+> - *authorization* **(string, header, required)**: Token of your project
+##### Params payload
+> - *conversation* **(Array of hash, required)**: Stream of text to moderate.
+```json
+"conversation": [
+  {
+    "name": "p1",
+      "message": "hello p2"
+  },
+  {
+    "name": "p2",
+    "message": "hello p1"
+  }
+]
+```
+> - *title* **(string URL, optional)**: Title of conversation
+> - *postback_url* **(string URL, optional)**: Where you want us to send result back to
+> - *postback_method* **(string, optional)**: Default with your project setting. If you set this parameter that will be override your default setting
+> - *allow_empty* **(boolean, optional)**: Default is ``` false ```
+> - *custom_id* **(string, optional)**: Use to custom ``` Primary key ``` of data row
+
+
+#### Get Text Human Categorization info object
+```js
+category.get({ token: <authorization>, data: <params> })
+```
+##### Authorization
+> - *authorization* **(string, header, required)**: Token of your project
+##### Params payload
+> - *id* **(string, optional)** Text Category's ID or Custom ID
