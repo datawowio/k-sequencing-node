@@ -3,7 +3,7 @@ module.exports = {
     AUTHORIZATION: 'Authorization',
   },
   KIYO_IMAGE_URL: 'https://k-sequencing.datawow.io/api/',
-  KIYO_TEXT_URL: 'https://kiyo-text.datawow.io/api/v1',
+  KIYO_TEXT_URL: 'https://kiyo-text.datawow.io/api/v1/',
   ENDPOINT: {
     IMAGES: {
       PHOTO_TAGS: 'images/photo_tags',
