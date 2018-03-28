@@ -3,13 +3,13 @@ const chai = require('chai');
 const axios = require('axios');
 const _ = require('lodash');
 const HttpStatus = require('http-status');
-const { getImage } = require('../fixtures/images');
+const { getImage } = require('../../fixtures/images/images');
 
 sinon.assert.expose(chai.assert, { prefix: '' });
 const assert = chai.assert;
 
-const image = require('../../src/operations/images/images');
-const httpClient = require('../../src/httpClient');
+const image = require('../../../src/operations/images/images');
+const httpClient = require('../../../src/httpClient');
 
 const getOptions = {
   id: 1,

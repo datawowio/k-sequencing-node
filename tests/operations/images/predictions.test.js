@@ -3,13 +3,13 @@ const chai = require('chai');
 const axios = require('axios');
 const _ = require('lodash');
 const HttpStatus = require('http-status');
-const { listClosedQuestion, createClosedQuestion } = require('../fixtures/closed-question');
+const { listPrediction, createPrediction } = require('../../fixtures/images/predictions');
 
 sinon.assert.expose(chai.assert, { prefix: '' });
 const assert = chai.assert;
 
-const closedQuestion = require('../../src/operations/images/closedQuestions');
-const httpClient = require('../../src/httpClient');
+const prediction = require('../../../src/operations/images/predictions');
+const httpClient = require('../../../src/httpClient');
 
 const listOptions = {
   id: 1,
@@ -22,7 +22,7 @@ const createOptions = {
 
 const PROJECT_KEY = 'project-key';
 
-describe('operations/closedQuestion', function () {
+describe('operations/Prediction', function () {
   let sandbox;
   let callGetStub;
   let callPostStub;
@@ -36,17 +36,17 @@ describe('operations/closedQuestion', function () {
     sandbox.restore();
   });
 
-  it('should get list of closed question image', async function () {
-    callGetStub.resolves({ data: listClosedQuestion });
-    const result = await closedQuestion.list({ token: PROJECT_KEY, data: listOptions });
+  it('should get list of prediction image', async function () {
+    callGetStub.resolves({ data: listPrediction });
+    const result = await prediction.list({ token: PROJECT_KEY, data: listOptions });
     const parsed = JSON.parse(result.data);
-    assert.isArray(parsed.data.images);
+    assert.isArray(parsed.data.image);
     assert.equal(parsed.meta.code, HttpStatus.OK);
   });
 
-  it('should create closed question image', async function () {
-    callPostStub.resolves({ data: createClosedQuestion });
-    const result = await closedQuestion.create({ token: PROJECT_KEY, data: createOptions });
+  it('should create prediction image', async function () {
+    callPostStub.resolves({ data: createPrediction });
+    const result = await prediction.create({ token: PROJECT_KEY, data: createOptions });
     const parsed = JSON.parse(result.data);
     assert.isObject(parsed.data);
     assert.equal(parsed.meta.code, HttpStatus.OK);
