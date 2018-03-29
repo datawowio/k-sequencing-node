@@ -202,29 +202,34 @@ image.get({ token: <authorization>, data: <params> })
 
 ## List of available Text Moderations
 
-### _Profanity Filtering_
+### _Profanity Filter_
 
-#### Create filter set
+First, you need to create profanity filter set which is the list of word that you want to
+filter out by
+
+#### Create profanity filter set
 ```js
-badWord.create({ token: <authorization>, data: <params> })
+profanity.create({ token: <authorization>, data: <params> })
 ```
 ##### Authorization
 > - *authorization* **(string, header, required)**: Token of your project
 ##### Params payload
 > - *project_type* **(string, required)**: A project type ( for now default is `text_bad_word` )
-> - *filter_set* **(string URL, optional)**: List of word you want to filter out
+> - *filter_set* **(array of string, optional)**: List of word you want to filter out
 > - *use_default* **(boolean, optional)**: Select whether using our predefined filter set or custom by own
 
-#### Get filtering set
+#### Get profanity filter set
 ```js
-badWord.get({ token: <authorization>, data: <params> })
+profanity.get({ token: <authorization>, data: <params> })
 ```
 ##### Authorization
 > - *authorization* **(string, header, required)**: Token of your project
 ##### Params payload
 > - *id* **(string, required)**: Custom filter set ID.
 
-#### Send stream of text to moderate
+After you have profanity filter set, you can send stream data of text to sanitize by
+
+#### Send text data to sanitize
 ```js
 textBadWord.create({ token: <authorization>, data: <params> })
 ```
@@ -236,7 +241,7 @@ textBadWord.create({ token: <authorization>, data: <params> })
 > - *postback_method* **(string, optional)**: Default with your project setting. If you set this parameter that will be override your default setting
 > - *custom_id* **(string, optional)**: Use to custom ``` Primary key ``` of data row
 
-####  Get Profinity Filtering info object
+####  Get profanity filtered text
 ```js
 textBadWord.get({ token: <authorization>, data: <params> })
 ```
@@ -248,7 +253,7 @@ textBadWord.get({ token: <authorization>, data: <params> })
 ----------
 ### _Text Human Categorization_
 
-#### Send (create) stream of text to moderate
+#### Send text category data to categorize
 ```js
 category.create({ token: <authorization>, data: <params> })
 ```
@@ -268,14 +273,14 @@ category.create({ token: <authorization>, data: <params> })
   }
 ]
 ```
-> - *title* **(string URL, optional)**: Title of conversation
+> - *title* **(string, optional)**: Title of conversation
 > - *postback_url* **(string URL, optional)**: Where you want us to send result back to
 > - *postback_method* **(string, optional)**: Default with your project setting. If you set this parameter that will be override your default setting
 > - *allow_empty* **(boolean, optional)**: Default is ``` false ```
 > - *custom_id* **(string, optional)**: Use to custom ``` Primary key ``` of data row
 
 
-#### Get Text Human Categorization info object
+#### Get Text Human Categorization
 ```js
 category.get({ token: <authorization>, data: <params> })
 ```
