@@ -6,8 +6,7 @@ const prediction = require('./src/operations/images/predictions');
 const image = require('./src/operations/images/images');
 
 const category = require('./src/operations/texts/categories');
-const textBadWord = require('./src/operations/texts/text_bad_words');
-const profanity = require('./src/operations/texts/bad_words');
+const profanity = require('./src/operations/texts/profanities');
 
 module.exports = {
   choice,
@@ -17,6 +16,5 @@ module.exports = {
   prediction,
   image,
   category,
-  textBadWord,
   profanity,
 };

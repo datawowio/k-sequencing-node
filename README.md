@@ -209,18 +209,18 @@ filter out by
 
 #### Create profanity filter set
 ```js
-profanity.create({ token: <authorization>, data: <params> })
+profanity.createFilter({ token: <authorization>, data: <params> })
 ```
 ##### Authorization
 > - *authorization* **(string, header, required)**: Token of your project
 ##### Params payload
 > - *project_type* **(string, required)**: A project type ( for now default is `text_bad_word` )
 > - *filter_set* **(array of string, optional)**: List of word you want to filter out
-> - *use_default* **(boolean, optional)**: Select whether using our predefined filter set or custom by own
+> - *use_default* **(boolean, optional)**: Select whether using predefined filter set or custom by your own
 
 #### Get profanity filter set
 ```js
-profanity.get({ token: <authorization>, data: <params> })
+profanity.retrieveFilter({ token: <authorization>, data: <params> })
 ```
 ##### Authorization
 > - *authorization* **(string, header, required)**: Token of your project
@@ -231,7 +231,7 @@ After you have profanity filter set, you can send stream data of text to sanitiz
 
 #### Send text data to sanitize
 ```js
-textBadWord.create({ token: <authorization>, data: <params> })
+profanity.sanitize({ token: <authorization>, data: <params> })
 ```
 ##### Authorization
 > - *authorization* **(string, header, required)**: Token of your project
@@ -243,7 +243,7 @@ textBadWord.create({ token: <authorization>, data: <params> })
 
 ####  Get profanity filtered text
 ```js
-textBadWord.get({ token: <authorization>, data: <params> })
+profanity.result({ token: <authorization>, data: <params> })
 ```
 ##### Authorization
 > - *authorization* **(string, header, required)**: Token of your project
