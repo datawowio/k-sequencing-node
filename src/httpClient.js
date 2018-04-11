@@ -11,8 +11,9 @@ function callGet(endpoint, options = {}) {
 function callPost(endpoint, options = {}) {
   return axios.post(endpoint,
     options.data,
-    { headers: { Authorization: options.token } },
-  )
+    {
+      headers: { Authorization: options.token },
+    })
   .then(result => result)
   .catch(err => err);
 }
