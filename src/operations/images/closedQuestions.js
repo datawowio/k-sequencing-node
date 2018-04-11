@@ -4,7 +4,7 @@ const utils = require('../../utils');
 
 function callGetList(options) {
   const endpointUrl =
-    utils.imageRequestUrl(constants.ENDPOINT.IMAGES.CLOSED_QUESTIONS) + utils.toQueryString(options.data);
+    `${utils.imageRequestUrl(constants.ENDPOINT.IMAGES.CLOSED_QUESTIONS)}?${utils.toQueryString(options.data)}`;
   return HttpClient.callGet(endpointUrl, options);
 }
 
