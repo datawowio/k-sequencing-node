@@ -1,8 +1,7 @@
 const axios = require('axios');
-const constants = require('./constants');
 
 function callGet(endpoint, options = {}) {
-  return axios.get(constants.URL + endpoint, {
+  return axios.get(endpoint, {
     headers: { Authorization: options.token },
   })
   .then(result => result)
@@ -10,10 +9,11 @@ function callGet(endpoint, options = {}) {
 }
 
 function callPost(endpoint, options = {}) {
-  return axios.post(constants.URL + endpoint, {
-    headers: { Authorization: options.token },
-    data: options.data,
-  })
+  return axios.post(endpoint,
+    options.data,
+    {
+      headers: { Authorization: options.token },
+    })
   .then(result => result)
   .catch(err => err);
 }
