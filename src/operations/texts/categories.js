@@ -4,11 +4,11 @@ const constants = require('../../constants');
 const utils = require('../../utils');
 
 function callPost(options) {
-  return HttpClient.callPost(utils.textRequestUrl(constants.ENDPOINT.TEXTS.CATEGORIES), options);
+  return HttpClient.callPost(utils.textRequestUrl(constants.ENDPOINT.TEXT.CATEGORIES), options);
 }
 
 function callGet(options) {
-  const endpointUrl = `${utils.textRequestUrl(constants.ENDPOINT.TEXTS.CATEGORIES)}/${_.get(options.data, 'id')}`;
+  const endpointUrl = `${utils.textRequestUrl(constants.ENDPOINT.TEXT.CATEGORIES)}/${_.get(options.data, 'id')}`;
   return HttpClient.callGet(endpointUrl, options);
 }
 

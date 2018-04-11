@@ -13,10 +13,12 @@ module.exports = {
       PREDICTIONS: 'prime/predictions',
       IMAGE: 'projects/images',
     },
-    TEXTS: {
+    TEXT: {
       CATEGORIES: 'text/text_categories',
-      TEXT_BAD_WORDS: 'text/text_bad_words',
-      BAD_WORDS: 'text/bad_words',
+      PROFANITY: {
+        FILTERS: 'text/profanity/filters',
+        TASKS: 'text/profanity/tasks',
+      },
     },
   },
 };
