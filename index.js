@@ -7,6 +7,7 @@ const image = require('./src/operations/images/images');
 
 const category = require('./src/operations/texts/categories');
 const profanity = require('./src/operations/texts/profanities');
+const textClosedQuestion = require('./src/operations/texts/closedQuestions');
 
 module.exports = {
   choice,
@@ -17,4 +18,5 @@ module.exports = {
   image,
   category,
   profanity,
+  textClosedQuestion,
 };

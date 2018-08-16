@@ -19,6 +19,7 @@ module.exports = {
         FILTERS: 'text/profanity/filters',
         TASKS: 'text/profanity/tasks',
       },
+      CLOSED_QUESTIONS: 'text/text_closed_questions',
     },
   },
 };
