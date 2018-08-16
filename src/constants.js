@@ -20,6 +20,7 @@ module.exports = {
         TASKS: 'text/profanity/tasks',
       },
       CLOSED_QUESTIONS: 'text/text_closed_questions',
+      CONVERSATIONS: 'text/text_conversations',
     },
   },
 };
