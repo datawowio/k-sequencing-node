@@ -9,6 +9,7 @@ const category = require('./src/operations/texts/categories');
 const profanity = require('./src/operations/texts/profanities');
 const textClosedQuestion = require('./src/operations/texts/closedQuestions');
 const conversation = require('./src/operations/texts/conversations');
+const facebookPage = require('./src/operations/texts/facebookPages');
 
 module.exports = {
   choice,
@@ -21,4 +22,5 @@ module.exports = {
   profanity,
   textClosedQuestion,
   conversation,
+  facebookPage,
 };
