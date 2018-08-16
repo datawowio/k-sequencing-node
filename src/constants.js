@@ -12,6 +12,8 @@ module.exports = {
       MESSAGES: 'images/messages',
       PREDICTIONS: 'prime/predictions',
       IMAGE: 'projects/images',
+      KYC_CUSTOMER: 'kyc/customers',
+      KYC_DOCUMENT: 'kyc/documents',
     },
     TEXT: {
       CATEGORIES: 'text/text_categories',

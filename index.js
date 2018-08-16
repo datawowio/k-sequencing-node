@@ -4,6 +4,7 @@ const message = require('./src/operations/images/messages');
 const photoTag = require('./src/operations/images/photoTags');
 const prediction = require('./src/operations/images/predictions');
 const image = require('./src/operations/images/images');
+const kyc = require('./src/operations/images/kyc');
 
 const category = require('./src/operations/texts/categories');
 const profanity = require('./src/operations/texts/profanities');
@@ -23,4 +24,5 @@ module.exports = {
   textClosedQuestion,
   conversation,
   facebookPage,
+  kyc,
 };
