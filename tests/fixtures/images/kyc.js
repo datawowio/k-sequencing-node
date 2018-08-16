@@ -22,7 +22,7 @@ const createCustomer = `
 `;
 
 const createDocument = `
-{ 
+{
   "data": {
     "id": "5b7531436e11576f14c0324a",
     "custom_id": "null",
@@ -52,7 +52,7 @@ const createDocument = `
         "url": "back_pic_url"
       }
     ],
-    "customer_id": "5b752f286e11576f13c0324a" 
+    "customer_id": "5b752f286e11576f13c0324a"
   },
   "meta": {
     "code": 201,

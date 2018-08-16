@@ -19,10 +19,11 @@ module.exports = {
   photoTag,
   prediction,
   image,
+  kyc,
+
   category,
   profanity,
   textClosedQuestion,
   conversation,
   facebookPage,
-  kyc,
 };
