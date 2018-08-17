@@ -25,5 +25,8 @@ module.exports = {
       CONVERSATIONS: 'text/text_conversations',
       FACEBOOK_PAGES: 'facebook/pages',
     },
+    VIDEO: {
+      CLOSED_QUESTIONS: 'videos/closed_questions',
+    },
   },
 };

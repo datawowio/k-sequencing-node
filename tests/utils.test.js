@@ -40,3 +40,11 @@ describe('utils#textRequestUrl', function () {
     assert.equal(result, 'https://kiyo-text.datawow.io/api/v1/texts/text_categories/123');
   });
 });
+
+describe('utils#videoRequestUrl', function () {
+  it('should append endpoint to url correctly', function () {
+    const endpoint = 'video/closed_questions';
+    const result = utils.videoRequestUrl(endpoint);
+    assert.equal(result, 'https://k-sequencing.datawow.io/api/video/closed_questions');
+  });
+});

@@ -16,8 +16,13 @@ function textRequestUrl(endpoint) {
   return constants.KIYO_TEXT_URL + endpoint;
 }
 
+function videoRequestUrl(endpoint) {
+  return constants.KIYO_IMAGE_URL + endpoint;
+}
+
 module.exports = {
   toQueryString: data => toQueryString(data),
   imageRequestUrl: endpoint => imageRequestUrl(endpoint),
   textRequestUrl: endpoint => textRequestUrl(endpoint),
+  videoRequestUrl: endpoint => videoRequestUrl(endpoint),
 };
