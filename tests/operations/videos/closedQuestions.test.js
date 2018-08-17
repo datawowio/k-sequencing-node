@@ -31,7 +31,7 @@ const createPayload = {
 
 const APP_KEY = 'project-key';
 
-describe('operations/videos/conversations', function () {
+describe('operations/videos/closedQuestions', function () {
   let sandbox;
   let callGetStub;
   let callPostStub;

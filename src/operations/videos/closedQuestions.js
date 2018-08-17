@@ -10,17 +10,13 @@ function callGetList(options) {
 }
 
 function callGet(options) {
-  return HttpClient.callGet(
-    `${utils.videoRequestUrl(constants.ENDPOINT.VIDEO.CLOSED_QUESTIONS)}/${_.get(options.data, 'id')}`,
-    options,
-  );
+  const endpointUrl = `${utils.videoRequestUrl(constants.ENDPOINT.VIDEO.CLOSED_QUESTIONS)}/${_.get(options.data, 'id')}`;
+  return HttpClient.callGet(endpointUrl, options);
 }
 
 function callPost(options) {
-  return HttpClient.callPost(
-    utils.imageRequestUrl(constants.ENDPOINT.VIDEO.CLOSED_QUESTIONS),
-    options,
-  );
+  const endpointUrl = utils.videoRequestUrl(constants.ENDPOINT.VIDEO.CLOSED_QUESTIONS);
+  return HttpClient.callPost(endpointUrl, options);
 }
 
 module.exports = {
