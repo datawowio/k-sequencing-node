@@ -12,6 +12,8 @@ const textClosedQuestion = require('./src/operations/texts/closedQuestions');
 const conversation = require('./src/operations/texts/conversations');
 const facebookPage = require('./src/operations/texts/facebookPages');
 
+const video = require('./src/operations/videos/closedQuestions');
+
 module.exports = {
   choice,
   closedQuestion,
@@ -26,4 +28,6 @@ module.exports = {
   textClosedQuestion,
   conversation,
   facebookPage,
+
+  video,
 };
