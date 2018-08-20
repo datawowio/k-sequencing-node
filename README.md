@@ -335,7 +335,7 @@ OTHER
 > - *customer_id* **(String, required)**: The customer's ID that belongs to document.
 > - *custom_id* **(String, optional)**: The customize record ID.
 
-```json
+```js
 // Example create document
 data: {
   customer_id: '5b752f286e11576f13c0324a',
@@ -407,13 +407,16 @@ kseq.conversation.list({ token: <project-token>, data: <payload> })
 #### Create predefined keywords and actions
 ```js
 kseq.facebookPage.create({ token: <project-token>, data: <payload> })
+```
+
 ##### Authorization
 > - *project-token* **(String, header, required)**: The token of your project.
 ##### Payload
 > - *page_id* **(String, required)**: The Facebook Page ID.
 > - *actions* **(Hash, required)**: The hash of keyword and action.
-```json
-//Example
+
+```js
+// Example of data's structure.
 data: {
   page_id: "245473502860590",
   actions: { word: 'foo', action: 'removed' },
@@ -430,6 +433,8 @@ kseq.facebookPage.get({ token: <project-token>, data: <payload> })
 > - *page_id* **(String, required)**: The Facebook Page ID.
 
 ----------
+
+## Video Moderation
 
 ### _Video Closed Question_
 
