@@ -24,6 +24,7 @@ module.exports = {
       CLOSED_QUESTIONS: 'text/text_closed_questions',
       CONVERSATIONS: 'text/text_conversations',
       FACEBOOK_PAGES: 'facebook/pages',
+      FACEBOOK_FEED_HISTORIES: 'facebook/feed_histories',
     },
     VIDEO: {
       CLOSED_QUESTIONS: 'videos/closed_questions',

@@ -3,7 +3,11 @@ const chai = require('chai');
 const axios = require('axios');
 const _ = require('lodash');
 const HttpStatus = require('http-status');
-const { getFacebookPage, createFacebookPage } = require('../../fixtures/texts/facebookPages');
+const {
+  getFacebookPage,
+  createFacebookPage,
+  getFacebookFeed,
+} = require('../../fixtures/texts/facebookPages');
 
 sinon.assert.expose(chai.assert, { prefix: '' });
 const assert = chai.assert;
@@ -21,6 +25,12 @@ const createPayload = {
     word: 'foo',
     action: 'removed',
   },
+};
+
+const getFeedPayload = {
+  page_id: '12345',
+  start_date: 'Wed, 22 Aug 2018 16:35:04 +07 +07:00',
+  end_date: 'Sat, 22 Sep 2018 16:35:24 +07 +07:00',
 };
 
 const APP_KEY = 'project-key';
@@ -64,5 +74,18 @@ describe('operations/texts/facebookPages', function () {
 
     assert.isObject(parsed.data);
     assert.equal(parsed.meta.code, HttpStatus.CREATED);
+  });
+
+  it('should get text facebook feed histories', async function () {
+    callGetStub.resolves({ data: getFacebookFeed });
+
+    const result = await facebookPage.getFeed({
+      data: getFeedPayload,
+    });
+    const parsed = JSON.parse(result.data);
+
+    assert.isArray(parsed.data);
+    assert.equal(parsed.meta.code, HttpStatus.OK);
+    assert.equal(parsed.meta.total, 4);
   });
 });
