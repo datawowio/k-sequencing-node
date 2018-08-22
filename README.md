@@ -459,8 +459,6 @@ kseq.facebookPage.get({ token: <project-token>, data: <payload> })
 ```js
 kseq.facebookPage.getFeed({ data: <payload> })
 ```
-##### Authorization
-> - *project-token* **(String, header, required)**: The token of your project.
 ##### Payload
 > - *page_id* **(String, required)**: The Facebook Page ID.
 > - *start_date* **(DateTime, optional)**: The start range of feed date. (Default: Start date of current month)
