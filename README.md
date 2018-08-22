@@ -353,6 +353,29 @@ data: {
 }
 ```
 
+#### List Customers
+```js
+kseq.kyc.listCustomer({ token: <project-token>, data: <payload> })
+```
+##### Authorization
+> - *project-token* **(String, header, required)**: The token of your project.
+##### Payload
+> - *id* **(String, optional)**
+> - *page* **(String, optional)**: Default 0
+> - *per_page* **(String, optional)**: Default 20
+
+#### List Documents
+```js
+kseq.kyc.listDocument({ token: <project-token>, data: <payload> })
+```
+##### Authorization
+> - *project-token* **(String, header, required)**: The token of your project.
+##### Payload
+> - *customer_id* **(String, required)**
+> - *id* **(String, optional)**
+> - *page* **(String, optional)**: Default 0
+> - *per_page* **(String, optional)**: Default 20
+
 ----------
 
 ### _Text Closed Question_
@@ -431,6 +454,17 @@ kseq.facebookPage.get({ token: <project-token>, data: <payload> })
 > - *project-token* **(String, header, required)**: The token of your project.
 ##### Payload
 > - *page_id* **(String, required)**: The Facebook Page ID.
+
+#### List Facebook's Feed histories
+```js
+kseq.facebookPage.getFeed({ data: <payload> })
+```
+##### Authorization
+> - *project-token* **(String, header, required)**: The token of your project.
+##### Payload
+> - *page_id* **(String, required)**: The Facebook Page ID.
+> - *start_date* **(DateTime, optional)**: The start range of feed date. (Default: Start date of current month)
+> - *end_date* **(DateTime, optional)**: The end range of feed date. (Default: End date of current month)
 
 ----------
 
