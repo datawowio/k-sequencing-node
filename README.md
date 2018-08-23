@@ -191,6 +191,7 @@ prediction.create({ token: <authorization>, data: <params> })
   > - *custom_id* **(string, optional)**: Use to custom ``` Primary key ``` of data row
 
 ----------
+
 #### Dynamically get image from project token
 ```js
 image.get({ token: <authorization>, data: <params> })
@@ -199,6 +200,92 @@ image.get({ token: <authorization>, data: <params> })
 > - *authorization* **(string, header, required)**: Token of your project
 ##### params object
 > - *id* **(string URL, required)**: Image ID or Client's image ID.
+
+----------
+
+### _Customer Document Verification_
+
+#### Create a customer
+```js
+kseq.kyc.createCustomer({ token: <project-token>, data: <payload> })
+```
+##### Authorization
+> - *project-token* **(String, header, required)**: The token of your project.
+##### Payload
+> - *address* **(String, optional)**: The customer's address.
+> - *dob* **(DateTime, optional)**: The customer's date of birth.
+> - *first_name* **(String, optional)**: The customer's first name.
+> - *last_name* **(String, optional)**: The customer's last name.
+> - *gender* **(String, optional)**: The customer's gender.
+> - *id_card* **(String, optional)**: The customer's ID Card.
+> - *email* **(String, optional)**: The customer's email.
+> - *custom_id* **(String, optional)**: The customize record ID.
+
+#### Create and upload a document
+```js
+kseq.kyc.createDocument({ token: <project-token>, data: <payload> })
+```
+##### Authorization
+> - *project-token* **(String, header, required)**: The token of your project.
+##### Payload
+> - *data* **(Array of hash, required)**: The customer's document images.
+> - *type* **(String, required)**: The type of document. e.g. 
+```
+PASSPORT
+DRIVING_LICENSE
+SOCIAL_SECURITY_NUMBER
+NATIONAL_ID_CARD
+NATIONAL_ID_CARD_COMPLETE
+VISA
+BOOK_BANK
+WEBSITE
+OTHER
+```
+> - *customer_id* **(String, required)**: The customer's ID that belongs to document.
+> - *custom_id* **(String, optional)**: The customize record ID.
+
+```js
+// Example create document
+data: {
+  customer_id: '5b752f286e11576f13c0324a',
+  type: 'PASSPORT',
+  data: [
+    {
+      attr: "front_side",
+      url: "front_pic_url"
+    },
+    {
+      attr: "back_side",
+      url: "back_pic_url"
+    }
+  ]
+}
+```
+
+#### List Customers
+```js
+kseq.kyc.listCustomer({ token: <project-token>, data: <payload> })
+```
+##### Authorization
+> - *project-token* **(String, header, required)**: The token of your project.
+##### Payload
+> - *id* **(String, optional)**
+> - *page* **(String, optional)**: Default 0
+> - *per_page* **(String, optional)**: Default 20
+
+#### List Documents
+```js
+kseq.kyc.listDocument({ token: <project-token>, data: <payload> })
+```
+##### Authorization
+> - *project-token* **(String, header, required)**: The token of your project.
+##### Payload
+> - *customer_id* **(String, required)**
+> - *id* **(String, optional)**
+> - *page* **(String, optional)**: Default 0
+> - *per_page* **(String, optional)**: Default 20
+
+----------
 
 ## List of available Text Moderations
 
@@ -288,3 +375,132 @@ category.get({ token: <authorization>, data: <params> })
 > - *authorization* **(string, header, required)**: Token of your project
 ##### Params payload
 > - *id* **(string, optional)** Text Category's ID or Custom ID
+
+----------
+
+### _Text Closed Question_
+
+#### Create a Text Closed Question
+```js
+kseq.textClosedQuestion.create({ token: <project-token>, data: <payload> })
+```
+##### Authorization
+> - *project-token* **(String, header, required)**: The token of your project.
+##### Payload
+> - *data* **(String, required)**: The stream of text.
+> - *custom_id* **(String, optional)**: The customize record ID.
+> - *postback_url* **(String URL, optional)**: Postback's URL.
+> - *postback_method* **(String, optional)**: Postback's method.
+
+#### List Text Closed Questions
+```js
+kseq.textClosedQuestion.list({ token: <project-token>, data: <payload> })
+```
+> - *id* **(String, optional)**
+> - *page* **(String, optional)**: Default 0
+> - *per_page* **(String, optional)**: Default 20
+
+----------
+
+### _Text Conversation_
+#### Create a Text Conversation
+```js
+kseq.conversation.create({ token: <project-token>, data: <payload> })
+```
+##### Authorization
+> - *project-token* **(String, header, required)**: The token of your project.
+##### Payload
+> - *conversation* **(Array of String, required)**: The list of conversation.
+> - *custom_conversation_ids* **(Array of String, optional)**: The list of customization's conversation ID.
+> - *postback_url* **(String URL, optional)**: Postback's URL.
+> - *postback_method* **(String, optional)**: Postback's method.
+
+#### List Text Conversations
+```js
+kseq.conversation.list({ token: <project-token>, data: <payload> })
+```
+> - *id* **(String, optional)**
+> - *page* **(String, optional)**: Default 0
+> - *per_page* **(String, optional)**: Default 20
+
+----------
+
+### _Facebook Page monitoring_
+
+#### Create predefined keywords and actions
+```js
+kseq.facebookPage.create({ token: <project-token>, data: <payload> })
+```
+
+##### Authorization
+> - *project-token* **(String, header, required)**: The token of your project.
+##### Payload
+> - *page_id* **(String, required)**: The Facebook Page ID.
+> - *actions* **(Hash, required)**: The hash of keyword and action.
+
+```js
+// Example of data's structure.
+data: {
+  page_id: "245473502860590",
+  actions: { word: 'foo', action: 'removed' },
+}
+```
+
+#### Get keyword and action from Facebook Page's ID
+```js
+kseq.facebookPage.get({ token: <project-token>, data: <payload> })
+```
+##### Authorization
+> - *project-token* **(String, header, required)**: The token of your project.
+##### Payload
+> - *page_id* **(String, required)**: The Facebook Page ID.
+
+#### List Facebook's Feed histories
+```js
+kseq.facebookPage.getFeed({ data: <payload> })
+```
+##### Payload
+> - *page_id* **(String, required)**: The Facebook Page ID.
+> - *start_date* **(DateTime, optional)**: The start range of feed date. (Default: Start date of current month)
+> - *end_date* **(DateTime, optional)**: The end range of feed date. (Default: End date of current month)
+
+----------
+
+## Video Moderation
+
+### _Video Closed Question_
+
+#### Create a Video Closed Question
+```js
+kseq.video.create({ token: <project-token>, data: <payload> })
+```
+##### Authorization
+> - *project-token* **(String, header, required)**: The token of your project.
+##### Payload
+> - *data* **(String, required)**: The video's url.
+> - *custom_id* **(String, optional)**: The customize record ID.
+> - *postback_url* **(String URL, optional)**: Postback's URL.
+> - *postback_method* **(String, optional)**: Postback's method.
+> - *muted* **(Boolean, optional)**: Opiton to mute video's sound.
+> - *allow_seeking* **(Boolean, optional)**: Option to be able to seek.
+> - *play_at* **(Integer, optional)**: The specific video starter point.
+
+#### Get Video Closed Question
+```js
+kseq.video.get({ token: <project-token>, data: <payload> })
+```
+##### Authorization
+> - *project-token* **(String, header, required)**: The token of your project.
+##### Payload
+> - *id* **(String, required)**: The Video Closed Question's ID.
+
+#### List Video Closed Questions
+```js
+kseq.video.list({ token: <project-token>, data: <payload> })
+```
+##### Authorization
+> - *project-token* **(String, header, required)**: The token of your project.
+##### Payload
+> - *id* **(String, optional)**:
+> - *page* **(String, optional)**: Default 0
+> - *per_page* **(String, optional)**: Default 20

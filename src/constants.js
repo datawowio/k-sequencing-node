@@ -12,6 +12,8 @@ module.exports = {
       MESSAGES: 'images/messages',
       PREDICTIONS: 'prime/predictions',
       IMAGE: 'projects/images',
+      KYC_CUSTOMER: 'kyc/customers',
+      KYC_DOCUMENT: 'kyc/documents',
     },
     TEXT: {
       CATEGORIES: 'text/text_categories',
@@ -19,6 +21,13 @@ module.exports = {
         FILTERS: 'text/profanity/filters',
         TASKS: 'text/profanity/tasks',
       },
+      CLOSED_QUESTIONS: 'text/text_closed_questions',
+      CONVERSATIONS: 'text/text_conversations',
+      FACEBOOK_PAGES: 'facebook/pages',
+      FACEBOOK_FEED_HISTORIES: 'facebook/feed_histories',
+    },
+    VIDEO: {
+      CLOSED_QUESTIONS: 'videos/closed_questions',
     },
   },
 };
