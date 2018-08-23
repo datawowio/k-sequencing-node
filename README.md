@@ -203,6 +203,90 @@ image.get({ token: <authorization>, data: <params> })
 
 ----------
 
+### _Customer Document Verification_
+
+#### Create a customer
+```js
+kseq.kyc.createCustomer({ token: <project-token>, data: <payload> })
+```
+##### Authorization
+> - *project-token* **(String, header, required)**: The token of your project.
+##### Payload
+> - *address* **(String, optional)**: The customer's address.
+> - *dob* **(DateTime, optional)**: The customer's date of birth.
+> - *first_name* **(String, optional)**: The customer's first name.
+> - *last_name* **(String, optional)**: The customer's last name.
+> - *gender* **(String, optional)**: The customer's gender.
+> - *id_card* **(String, optional)**: The customer's ID Card.
+> - *email* **(String, optional)**: The customer's email.
+> - *custom_id* **(String, optional)**: The customize record ID.
+
+#### Create and upload a document
+```js
+kseq.kyc.createDocument({ token: <project-token>, data: <payload> })
+```
+##### Authorization
+> - *project-token* **(String, header, required)**: The token of your project.
+##### Payload
+> - *data* **(Array of hash, required)**: The customer's document images.
+> - *type* **(String, required)**: The type of document. e.g. 
+```
+PASSPORT
+DRIVING_LICENSE
+SOCIAL_SECURITY_NUMBER
+NATIONAL_ID_CARD
+NATIONAL_ID_CARD_COMPLETE
+VISA
+BOOK_BANK
+WEBSITE
+OTHER
+```
+> - *customer_id* **(String, required)**: The customer's ID that belongs to document.
+> - *custom_id* **(String, optional)**: The customize record ID.
+
+```js
+// Example create document
+data: {
+  customer_id: '5b752f286e11576f13c0324a',
+  type: 'PASSPORT',
+  data: [
+    {
+      attr: "front_side",
+      url: "front_pic_url"
+    },
+    {
+      attr: "back_side",
+      url: "back_pic_url"
+    }
+  ]
+}
+```
+
+#### List Customers
+```js
+kseq.kyc.listCustomer({ token: <project-token>, data: <payload> })
+```
+##### Authorization
+> - *project-token* **(String, header, required)**: The token of your project.
+##### Payload
+> - *id* **(String, optional)**
+> - *page* **(String, optional)**: Default 0
+> - *per_page* **(String, optional)**: Default 20
+
+#### List Documents
+```js
+kseq.kyc.listDocument({ token: <project-token>, data: <payload> })
+```
+##### Authorization
+> - *project-token* **(String, header, required)**: The token of your project.
+##### Payload
+> - *customer_id* **(String, required)**
+> - *id* **(String, optional)**
+> - *page* **(String, optional)**: Default 0
+> - *per_page* **(String, optional)**: Default 20
+
+----------
+
 ## List of available Text Moderations
 
 ### _Profanity Filter_
@@ -291,90 +375,6 @@ category.get({ token: <authorization>, data: <params> })
 > - *authorization* **(string, header, required)**: Token of your project
 ##### Params payload
 > - *id* **(string, optional)** Text Category's ID or Custom ID
-
-----------
-
-### _Customer Document Verification_
-
-#### Create a customer
-```js
-kseq.kyc.createCustomer({ token: <project-token>, data: <payload> })
-```
-##### Authorization
-> - *project-token* **(String, header, required)**: The token of your project.
-##### Payload
-> - *address* **(String, optional)**: The customer's address.
-> - *dob* **(DateTime, optional)**: The customer's date of birth.
-> - *first_name* **(String, optional)**: The customer's first name.
-> - *last_name* **(String, optional)**: The customer's last name.
-> - *gender* **(String, optional)**: The customer's gender.
-> - *id_card* **(String, optional)**: The customer's ID Card.
-> - *email* **(String, optional)**: The customer's email.
-> - *custom_id* **(String, optional)**: The customize record ID.
-
-#### Create and upload a document
-```js
-kseq.kyc.createDocument({ token: <project-token>, data: <payload> })
-```
-##### Authorization
-> - *project-token* **(String, header, required)**: The token of your project.
-##### Payload
-> - *data* **(Array of hash, required)**: The customer's document images.
-> - *type* **(String, required)**: The type of document. e.g. 
-```
-PASSPORT
-DRIVING_LICENSE
-SOCIAL_SECURITY_NUMBER
-NATIONAL_ID_CARD
-NATIONAL_ID_CARD_COMPLETE
-VISA
-BOOK_BANK
-WEBSITE
-OTHER
-```
-> - *customer_id* **(String, required)**: The customer's ID that belongs to document.
-> - *custom_id* **(String, optional)**: The customize record ID.
-
-```js
-// Example create document
-data: {
-  customer_id: '5b752f286e11576f13c0324a',
-  type: 'PASSPORT',
-  data: [
-    {
-      attr: "front_side",
-      url: "front_pic_url"
-    },
-    {
-      attr: "back_side",
-      url: "back_pic_url"
-    }
-  ]
-}
-```
-
-#### List Customers
-```js
-kseq.kyc.listCustomer({ token: <project-token>, data: <payload> })
-```
-##### Authorization
-> - *project-token* **(String, header, required)**: The token of your project.
-##### Payload
-> - *id* **(String, optional)**
-> - *page* **(String, optional)**: Default 0
-> - *per_page* **(String, optional)**: Default 20
-
-#### List Documents
-```js
-kseq.kyc.listDocument({ token: <project-token>, data: <payload> })
-```
-##### Authorization
-> - *project-token* **(String, header, required)**: The token of your project.
-##### Payload
-> - *customer_id* **(String, required)**
-> - *id* **(String, optional)**
-> - *page* **(String, optional)**: Default 0
-> - *per_page* **(String, optional)**: Default 20
 
 ----------
 
