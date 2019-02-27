@@ -2,7 +2,7 @@ module.exports = {
   HEADER: {
     AUTHORIZATION: 'Authorization',
   },
-  KIYO_IMAGE_URL: 'https://k-sequencing.datawow.io/api/v1',
+  KIYO_IMAGE_URL: 'https://kiyo-image.datawow.io/api/v1/',
   KIYO_TEXT_URL: 'https://kiyo-text.datawow.io/api/v1/',
   ENDPOINT: {
     IMAGES: {

@@ -29,7 +29,7 @@ describe('utils#imageRequestUrl', function () {
   it('should append endpoint to url correctly', function () {
     const endpoint = 'images/closed_question';
     const result = utils.imageRequestUrl(endpoint);
-    assert.equal(result, 'https://k-sequencing.datawow.io/api/images/closed_question');
+    assert.equal(result, 'https://kiyo-image.datawow.io/api/v1/images/closed_question');
   });
 });
 
@@ -45,6 +45,6 @@ describe('utils#videoRequestUrl', function () {
   it('should append endpoint to url correctly', function () {
     const endpoint = 'video/closed_questions';
     const result = utils.videoRequestUrl(endpoint);
-    assert.equal(result, 'https://k-sequencing.datawow.io/api/video/closed_questions');
+    assert.equal(result, 'https://kiyo-image.datawow.io/api/v1/video/closed_questions');
   });
 });
