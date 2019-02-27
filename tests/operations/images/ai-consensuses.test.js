@@ -40,7 +40,7 @@ describe('operations/aiConsensus', function () {
     callGetStub.resolves({ data: listAiConsensus });
     const result = await aiConsensus.list({ token: PROJECT_KEY, data: listOptions });
     const parsed = JSON.parse(result.data);
-    assert.isArray(parsed.data.jobs);
+    assert.isArray(parsed.data.images);
     assert.equal(parsed.meta.code, HttpStatus.OK);
   });
 

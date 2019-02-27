@@ -1,18 +1,29 @@
 const createAiConsensus = `
 {
   "data": {
-    "id": "5c762bb81eda3f3c328d2eb6",
-    "custom_id": null,
-    "data": "https://assets-cdn.github.com/images/modules/open_graph/github-mark.png",
-    "credit_charged": 0,
-    "created_at": "2019-02-27T13:18:32.331+07:00",
-    "postback_url": "https://datawow.io",
-    "processed_at": null,
-    "project_id": 199,
-    "status": "unprocess",
-    "answer": null,
-    "contributors": [],
-    "min_unit_confidence": 2
+    "image": {
+      "id": "5c7630a81eda3f3c328d2eb8",
+      "answer": "approved",
+      "credit_charged": 0,
+      "custom_id": null,
+      "data": "https://assets-cdn.github.com/images/modules/open_graph/github-mark.png",
+      "mode": "ai",
+      "created_at": "2019-02-27T13:39:36.903+07:00",
+      "postback": false,
+      "postback_url": "https://datawow.io",
+      "processed_at": "2019-02-27T13:39:36.911+07:00",
+      "prediction_at": "2019-02-27T13:39:36.911+07:00",
+      "prediction_status": "processed",
+      "prediction_result": {
+        "kenta": 0.0073,
+        "approved": 0.9908,
+        "declined": 0.0019
+      },
+      "project_id": 199,
+      "staff_id": null,
+      "status": "processed",
+      "contributors": null
+    }
   },
   "meta": {
     "code": 201,
@@ -24,24 +35,29 @@ const createAiConsensus = `
 const listAiConsensus = `
 {
   "data": {
-    "jobs": [
+    "images": [
       {
-        "id": "5c1a14061eda3f2588f48204",
-        "custom_id": "5c1a13d01eda3f2588f48203",
-        "data": "https://s3.ap-southeast-1.amazonaws.com/k-sequencing/2018/12/14/declined/5c138840724d553491072b18.jpg",
-        "credit_charged": 3,
-        "created_at": "2018-12-19T16:48:54.372+07:00",
-        "postback_url": "https://datawow.io",
-        "processed_at": "2018-12-19T17:12:18.030+07:00",
-        "project_id": 199,
-        "status": "processed",
+        "id": "5c7630a81eda3f3c328d2eb8",
         "answer": "approved",
-        "contributors": [
-          49,
-          53051090,
-          null
-        ],
-        "min_unit_confidence": 2
+        "credit_charged": 0,
+        "custom_id": null,
+        "data": "https://assets-cdn.github.com/images/modules/open_graph/github-mark.png",
+        "mode": "ai",
+        "created_at": "2019-02-27T13:39:36.903+07:00",
+        "postback": true,
+        "postback_url": "https://datawow.io",
+        "processed_at": "2019-02-27T13:39:36.911+07:00",
+        "prediction_at": "2019-02-27T13:39:36.911+07:00",
+        "prediction_status": "processed",
+        "prediction_result": {
+          "kenta": 0.0073,
+          "approved": 0.9908,
+          "declined": 0.0019
+        },
+        "project_id": 199,
+        "staff_id": null,
+        "status": "processed",
+        "contributors": null
       }
     ]
   },
@@ -51,8 +67,8 @@ const listAiConsensus = `
     "current_page": 1,
     "next_page": 2,
     "prev_page": -1,
-    "total_pages": 243,
-    "total_count": 4841
+    "total_pages": 5,
+    "total_count": 86
   }
 }
 `;
