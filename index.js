@@ -5,6 +5,7 @@ const photoTag = require('./src/operations/images/photoTags');
 const prediction = require('./src/operations/images/predictions');
 const image = require('./src/operations/images/images');
 const kyc = require('./src/operations/images/kyc');
+const aiConsensus = require('./src/operations/images/aiConsensus');
 
 const category = require('./src/operations/texts/categories');
 const profanity = require('./src/operations/texts/profanities');
@@ -22,6 +23,7 @@ module.exports = {
   prediction,
   image,
   kyc,
+  aiConsensus,
 
   category,
   profanity,

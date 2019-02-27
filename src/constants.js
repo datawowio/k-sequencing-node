@@ -2,7 +2,7 @@ module.exports = {
   HEADER: {
     AUTHORIZATION: 'Authorization',
   },
-  KIYO_IMAGE_URL: 'https://k-sequencing.datawow.io/api/',
+  KIYO_IMAGE_URL: 'https://k-sequencing.datawow.io/api/v1',
   KIYO_TEXT_URL: 'https://kiyo-text.datawow.io/api/v1/',
   ENDPOINT: {
     IMAGES: {
@@ -14,6 +14,7 @@ module.exports = {
       IMAGE: 'projects/images',
       KYC_CUSTOMER: 'kyc/customers',
       KYC_DOCUMENT: 'kyc/documents',
+      AI_CONSENSUS: 'jobs/ai/consensuses',
     },
     TEXT: {
       CATEGORIES: 'text/text_categories',
