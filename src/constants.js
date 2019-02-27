@@ -14,6 +14,7 @@ module.exports = {
       IMAGE: 'projects/images',
       KYC_CUSTOMER: 'kyc/customers',
       KYC_DOCUMENT: 'kyc/documents',
+      AI_CONSENSUS: 'jobs/ai/consensuses',
       DOCUMENT_VERIFICATION: 'images/document_verifications',
     },
     TEXT: {

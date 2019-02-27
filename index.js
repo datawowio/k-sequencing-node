@@ -5,6 +5,7 @@ const photoTag = require('./src/operations/images/photoTags');
 const prediction = require('./src/operations/images/predictions');
 const image = require('./src/operations/images/images');
 const kyc = require('./src/operations/images/kyc');
+const aiConsensus = require('./src/operations/images/aiConsensus');
 const documentVerification = require('./src/operations/images/documentVerification');
 
 const category = require('./src/operations/texts/categories');
@@ -23,6 +24,7 @@ module.exports = {
   prediction,
   image,
   kyc,
+  aiConsensus,
   documentVerification,
 
   category,

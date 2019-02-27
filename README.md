@@ -507,6 +507,35 @@ kseq.video.list({ token: <project-token>, data: <payload> })
 
 ----------
 
+## AI Consensus
+
+### _AI Consensus_
+
+#### Create AI Consensus task
+```js
+kseq.aiConsensus.create({ token: <project-token>, data: <payload> })
+```
+##### Authorization
+> - *project-token* **(String, header, required)**: The token of your project.
+##### Payload
+> - *data* **(String, required)**: The video's url.
+> - *custom_id* **(String, optional)**: The customize record ID.
+> - *postback_url* **(String URL, optional)**: Postback's URL.
+> - *postback_method* **(String, optional)**: Postback's method.
+
+#### List AI Consensus
+```js
+kseq.aiConsensus.list({ token: <project-token>, data: <payload> })
+```
+##### Authorization
+> - *project-token* **(String, header, required)**: The token of your project.
+##### Payload
+> - *id* **(String, optional)**:
+> - *page* **(String, optional)**: Default 0
+> - *per_page* **(String, optional)**: Default 20
+
+----------
+
 ## Document Verification
 
 ### _Document Verification_
