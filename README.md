@@ -533,3 +533,48 @@ kseq.aiConsensus.list({ token: <project-token>, data: <payload> })
 > - *id* **(String, optional)**:
 > - *page* **(String, optional)**: Default 0
 > - *per_page* **(String, optional)**: Default 20
+
+----------
+
+## Document Verification
+
+### _Document Verification_
+
+#### Create Document Verification task
+```js
+kseq.documentVerification.create({
+  token: <project-token>,
+  data: {
+    data: "https://assets-cdn.github.com/images/modules/open_graph/github-mark.png",
+    info: {
+      type: {
+        value: "driver_license"
+      },
+      dob: {
+        value: "1983/12/26"
+      }
+    }
+  }
+}).then(result => {
+  console.log(result.data.data);
+})
+```
+##### Authorization
+> - *project-token* **(String, header, required)**: The token of your project.
+##### Payload
+> - *data* **(String, required)**: The video's url.
+> - *info* **(Hash, required)**: The Document information.
+> - *custom_id* **(String, optional)**: The customize record ID.
+> - *postback_url* **(String URL, optional)**: Postback's URL.
+> - *postback_method* **(String, optional)**: Postback's method.
+
+#### List Document Verification
+```js
+kseq.documentVerification.list({ token: <project-token>, data: <payload> })
+```
+##### Authorization
+> - *project-token* **(String, header, required)**: The token of your project.
+##### Payload
+> - *id* **(String, optional)**:
+> - *page* **(String, optional)**: Default 0
+> - *per_page* **(String, optional)**: Default 20
