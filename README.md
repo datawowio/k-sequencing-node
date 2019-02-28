@@ -518,7 +518,7 @@ kseq.aiConsensus.create({ token: <project-token>, data: <payload> })
 ##### Authorization
 > - *project-token* **(String, header, required)**: The token of your project.
 ##### Payload
-> - *data* **(String, required)**: The video's url.
+> - *data* **(String, required)**: The image's url.
 > - *custom_id* **(String, optional)**: The customize record ID.
 > - *postback_url* **(String URL, optional)**: Postback's URL.
 > - *postback_method* **(String, optional)**: Postback's method.
@@ -562,7 +562,7 @@ kseq.documentVerification.create({
 ##### Authorization
 > - *project-token* **(String, header, required)**: The token of your project.
 ##### Payload
-> - *data* **(String, required)**: The video's url.
+> - *data* **(String, required)**: The document image's url.
 > - *info* **(Hash, required)**: The Document information.
 > - *custom_id* **(String, optional)**: The customize record ID.
 > - *postback_url* **(String URL, optional)**: Postback's URL.
