@@ -9,15 +9,15 @@ function toQueryString(data) {
 }
 
 function imageRequestUrl(endpoint) {
-  return constants.KIYO_IMAGE_URL + endpoint;
+  return constants.BASE_IMAGE_URL + endpoint;
 }
 
 function textRequestUrl(endpoint) {
-  return constants.KIYO_TEXT_URL + endpoint;
+  return constants.BASE_TEXT_URL + endpoint;
 }
 
 function videoRequestUrl(endpoint) {
-  return constants.KIYO_IMAGE_URL + endpoint;
+  return constants.BASE_IMAGE_URL + endpoint;
 }
 
 module.exports = {
